@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    #playBtn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #playBtn:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="playBtn">Reproducir</button>
+  <audio id="myAudio" src="tu_audio.mp3"></audio>
+
+  <script>
+    const button = document.getElementById('playBtn');
+    const audio = document.getElementById('myAudio');
+
+    button.addEventListener('click', () => {
+      if(audio.paused){
+        audio.play();
+        button.textContent = 'Pausar';
+      } else {
+        audio.pause();
+        button.textContent = 'Reproducir';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
