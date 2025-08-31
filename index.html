@@ -1,51 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>4</title>
   <style>
     body {
       background-color: black;
-      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
+      margin: 0;
     }
-    /* Botón minimalista arriba izquierda */
     #playButton {
-      position: absolute;
-      top: 10px;
-      left: 10px;
       background-color: white;
       color: black;
       border: none;
       padding: 5px 10px;
-      font-size: 12px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <!-- Audio oculto -->
   <audio id="miAudio" src="voz.mp3"></audio>
-
-  <!-- Botón estilo Cicada -->
-  <button id="playButton" onclick="playAudio()">Play</button>
-
-  <script>
-    function playAudio() {
-      const audio = document.getElementById('miAudio');
-      audio.currentTime = 0; // siempre desde el inicio
-      audio.play();
-    }
-
-    // Evita adelantar el audio
-    const audio = document.getElementById('miAudio');
-    audio.addEventListener('seeking', () => {
-      audio.currentTime = 0;
-    });
-  </script>
+  <button id="playButton" onclick="document.getElementById('miAudio').play()">Play</button>
 
 </body>
 </html>
-
 
