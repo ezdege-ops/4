@@ -9,11 +9,11 @@
       margin: 0;
       height: 100vh;
     }
-    /* Botón minimalista arriba a la derecha */
+    /* Botón minimalista arriba izquierda */
     #playButton {
       position: absolute;
       top: 10px;
-      right: 10px;
+      left: 10px;
       background-color: white;
       color: black;
       border: none;
@@ -28,8 +28,23 @@
   <!-- Audio oculto -->
   <audio id="miAudio" src="voz.mp3"></audio>
 
-  <!-- Botón arriba derecha -->
-  <button id="playButton" onclick="document.getElementById('miAudio').play()">▶</button>
+  <!-- Botón estilo Cicada -->
+  <button id="playButton" onclick="playAudio()">Play</button>
+
+  <script>
+    function playAudio() {
+      const audio = document.getElementById('miAudio');
+      audio.currentTime = 0; // siempre desde el inicio
+      audio.play();
+    }
+
+    // Evita adelantar el audio
+    const audio = document.getElementById('miAudio');
+    audio.addEventListener('seeking', () => {
+      audio.currentTime = 0;
+    });
+  </script>
 
 </body>
 </html>
+
